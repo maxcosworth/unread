@@ -6,6 +6,11 @@ Ruby gem to manage read/unread status of ActiveRecord objects - and it's fast.
 [![Build Status](https://secure.travis-ci.org/ledermann/unread.png)](http://travis-ci.org/ledermann/unread)
 
 
+## About this fork
+
+The original gem creates a new read mark whenever a "reader" is created. That way, this new user is not going to be able to read past messages, that could be important for him. So this fork avoid the creation of that read mark, so the user have access to all messages, from the beginning.
+
+
 ## Features
 
 * Manages unread records for anything you want users to read (like messages, documents, comments etc.)
@@ -122,7 +127,7 @@ current_user = User.find(42)
 Message.unread_by(current_user)
 ```
 
-Generates query: 
+Generates query:
 
 ```sql
 SELECT messages.*
